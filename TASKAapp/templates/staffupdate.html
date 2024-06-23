@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Staff Profile</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffefd5;
+            padding: 20px;
+        }
+        form {
+            background-color: #fdfd96;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            margin: auto;
+            
+            
+        }
+        .inputt {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ffb6c1;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 80%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            
+      
+        }
+        input[type="submit"]:hover {
+            background-color: #ffffff;
+        }
+        label {
+            font-size: 18px;
+            color: #d2691e;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+            <label for="STICNUM">Email 📧:</label><br>
+            <input type="text" placeholder="{{mySTAFF.STICNUM}}" name="STICNUM" class="inputt" value="{{mySTAFF.STICNUM}}" disabled="False"><br><br>
+
+            <label for="NAME">Name 👤:</label><br>
+            <input type="text" placeholder="{{mySTAFF.NAME}}" name="NAME" class="inputt" id="bb"><br>
+
+            <label for="PASSWORD">Password 🔒:</label><br>
+            <input type="text" placeholder="{{mySTAFF.PASSWORD}}" name="PASSWORD" class="inputt" id="bb"><br>
+
+            <label for="EMAIL">Email 🔒:</label><br>
+            <input type="email" placeholder="{{mySTAFF.EMAIL}}" name="EMAIL" class="inputt" id="bb"><br>
+
+            <label for="PHONENUMBER">Phone Number 🔒:</label><br>
+            <input type="text" placeholder="{{mySTAFF.PHONENUMBER}}" name="PHONENUMBER" class="inputt" id="bb"><br>
+
+            <label for="ADDRESS">Address 🔒:</label><br>
+            <input type="text" placeholder="{{mySTAFF.ADDRESS}}" name="ADDRESS" class="inputt" id="bb"><br>
+
+            <label for="POSSITION">Position 🔒:</label><br>
+            <input type="text" placeholder="{{mySTAFF.POSSITION}}" name="POSSITION" class="inputt" id="bb"><br>
+
+            <label for="EDUCATION">Education 🔒:</label><br>
+            <input type="text" placeholder="{{mySTAFF.EDUCATION}}" name="EDUCATION" class="inputt" id="bb"><br>
+
+            <input type="submit" id="bb" value="✏️ Edit Profile">
+    </form>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Child Profile</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffefd5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        form {
+            background-color: #fdfd96;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        .inputt {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ffb6c1;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            width: 90%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #ff69b4;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #ff1493;
+        }
+        label {
+            font-size: 18px;
+            color: #d2691e;
+        }
+        h2 {
+            text-align: center;
+            color: #d2691e;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+            <h2>Edit Child Profile</h2>
+            <label for="mykadnum">IC Number 📧:</label><br>
+            <input type="text" placeholder="{{myCHILD.mykadnum}}" name="mykadnum" class="inputt" value="{{myCHILD.mykadnum}}" disabled="False"><br><br>
+
+            <label for="cname">Name 👤:</label><br>
+            <input type="text" placeholder="{{myCHILD.cname}}" name="cname" class="inputt" id="bb"><br>
+
+            <label for="age">Age 🔒:</label><br>
+            <input type="text" placeholder="{{myCHILD.age}}" name="age" class="inputt" id="bb"><br>
+            
+            <input type="submit" id="bb" value="✏️ UPDATE">
+    </form><br>
+</body>
+</html>

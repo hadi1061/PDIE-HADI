@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Profile</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebcd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #333;
+        }
+        .profile-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            border: 5px solid #ffb6c1;
+        }
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-container img {
+            margin: 10px 0;
+            border: 3px solid #ffb6c1;
+            border-radius: 15px;
+            max-width: 100%;
+            height: auto;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #555;
+            margin-top: 20px;
+            font-size: 1.3em;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #ff69b4;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #ff1493;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Child Profile</h1>
+        <p><strong>Name:</strong> {{ myCHILD.cname }}</p>
+        <p><strong>ICNUM Parent:</strong> {{ myCHILD.ICNUM }}</p>
+        <p><strong>Age:</strong> {{ myCHILD.age }}</p>
+        <div class="image-container">
+            <p class="section-title">Salinan My Kid</p>
+            <img src="{{ myCHILD.salinanmykid.url }}" alt="Salinan My Kid">
+            <p class="section-title">Salinan IC Parents</p>
+            <img src="{{ myCHILD.salinanICparent.url }}" alt="Salinan IC Parents">
+            <p class="section-title">Salinan Surat Beranak</p>
+            <img src="{{ myCHILD.salinansuratberanak.url }}" alt="Salinan Surat Beranak">
+            <p class="section-title">Salinan Imunisasi Anak</p>
+            <img src="{{ myCHILD.salinanimunisasianak.url }}" alt="Salinan Imunisasi Anak">
+            <p class="section-title">Salinan Interface Buku Kesihatan Anak</p>
+            <img src="{{ myCHILD.interfacebukukesihatan.url }}" alt="Salinan Interface Buku Kesihatan Anak">
+        </div>
+        <a href="{% url 'parenthome' myparent.ICNUM %}">Back</a>
+    </div>
+</body>
+</html>

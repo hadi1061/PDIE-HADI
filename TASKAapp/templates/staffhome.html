@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten Staff Home Page</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #1e75ab;
+            padding: 10px;
+            color: white;
+        }
+        #div1 {
+            display: flex;
+            align-items: center;
+        }
+        #div1 img {
+            margin-right: 15px;
+        }
+        #div1 div {
+            text-shadow: 2px 2px 5px #000;
+        }
+        #div2 {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+        }
+        #div2 img {
+            border-radius: 50%;
+            border: 2px solid #fbbc05;
+            margin-right: 10px;
+        }
+        #div2 a {
+            text-decoration: none;
+            color: white;
+        }
+        #container {
+            display: flex;
+            margin: 20px;
+            justify-content: space-between;
+        }
+        #details {
+            flex: 1;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1e75ab;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 2px solid #fbbc05;
+        }
+        th {
+            background-color: #1e75ab;
+            color: white;
+            padding: 10px;
+        }
+        td {
+            background-color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        tr:nth-child(even) td {
+            background-color: #f0f8ff;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        marquee {
+            color: #ff4500;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        footer {
+            margin-top: 40px;
+            background-color: #1e75ab;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="div1">
+            {% load static %}
+            <img src="{% static 'icon.png' %}" alt="Logo" width="55" height="50">
+            <div>Taska Ceria</div>
+            <div id="div2">
+                <img src="{% static 'pfpp.jpg' %}" alt="Profile Picture" width="30" height="30">
+                <div id="aaa">
+                    <a href="{% url 'staffuserprofile' mySTAFF.STICNUM %}">{{mySTAFF.STICNUM}}</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <article>
+        <div id="container">
+            <div id="details">
+                <h1>CHILDREN IN KINDERGARTEN</h1>
+                <p><strong>Note to all staff:</strong></p>
+                <marquee behavior="alternate" scrollamount="1">➡️ Update student records and click on the <strong>Completed</strong> button after your task is done ;)</marquee>
+                <marquee behavior="alternate" scrollamount="1">➡️ Enjoy your meaningful work!</marquee>
+                <hr>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>MYkad Number</th>
+                        <th>Parent IC</th>
+                        <th colspan="3">Manage</th>
+                    </tr>
+                    {% for x in mychild %}
+                    <tr>
+                        <td>{{ x.cname }}</td>
+                        <td>{{ x.age }}</td>
+                        <td>{{ x.mykadnum }}</td>
+                        <td>{{ x.ICNUM }}</td>
+                        <td><a href="manageplanning/{{ myagent.agentid }}/{{ x.id }}">UPDATE</a></td>
+                        <td><a href="detail/{{ mySTAFF.STICNUM }}/{{ x.mykadnum }}">DETAIL</a></td>
+                        <td>
+                            <form method="post" action="{% url 'deletedatachild' x.mykadnum %}">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </article>
+    <footer>
+        &copy; 2024 Taska Ceria. All rights reserved.
+    </footer>
+</body>
+</html>

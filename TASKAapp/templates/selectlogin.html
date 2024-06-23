@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Document</title>
+    {%load static%}
+    <style>
+      
+       
+        .container {
+            border: 1px solid #343a40;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            width: 200px; /* Adjust width as needed */
+            transition: background-color 0.3s;
+        }
+        .container:hover {
+            background-color: #007ffd;
+        }
+        .container a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        .container a:hover {
+            color: #0056b3;
+        }
+        .active{
+            background-color: rgb(0, 205, 137);
+        }
+        head {margin:0;}
+
+        .icon-bar {
+        width: 100%;
+        background-color: #555;
+        overflow: auto;
+        }
+
+        .icon-bar a {
+        float: left;
+        width: 20%;
+        text-align: center;
+        padding: 12px 0;
+        transition: all 0.3s ease;
+        color: white;
+        font-size: 36px;
+        }
+
+        .icon-bar a:hover {
+        background-color: #000;
+        }
+       .block{
+        align-items: center;
+       }
+       body{
+        background-color: #FFDAB9;
+       }
+
+    </style>
+  <center>
+    <div class="icon-bar">
+        <div style="position: relative; display: inline-block;">
+            <p style="position: absolute; top: 0; left: 9px; margin: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 6px;">TASKA CERIA</p>
+            <img src="{% static 'kindergartenlogo.jpg' %}" alt="" height="125px" width="135px">
+          </div>
+     </center>    
+    </div>
+    <div class="icon-bar">
+        <a class="active" href="{% url 'home' %}" ><i class="fa fa-home"></i></a> 
+        <a href="#"><i>REGISTER</i></a> 
+        <a href="{% url 'selectlogin' %}"><i>LOGIN</i></a> 
+        <a href="#"><i>ABOUT US</i></a>
+        <a href="#"><i>CONTACT US</i></a> 
+        
+      </div>
+</head>
+<body>
+    <center>
+    <h1>SELECT BEFORE LOGIN</h1>
+    <div class="container">
+        <a href="{% url 'parentlogin' %}">PARENT</a>
+    </div>
+    <div class="container">    
+        <a href="{% url 'stafflogin' %}">STAFF</a>
+    </div>
+    <div class="container">
+        <a href="{% url 'adminlogin' %}">ADMIN</a>
+    </center>
+</div>
+</body>
+</html>

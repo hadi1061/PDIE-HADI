@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kindergarten System</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebcd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #333;
+        }
+
+        .icon-bar {
+            width: 100%;
+            background-image: url("{% static 'headerhome.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            overflow: auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        .icon-bar a {
+            flex: 1;
+            text-align: center;
+            padding: 12px 0;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 36px;
+        }
+
+        .icon-bar a:hover {
+            background-color: #04AA6D;
+        }
+
+        .icon-bar a i {
+            font-size: 24px;
+        }
+
+        .active {
+            background-color: #04AA6D;
+        }
+
+        #container {
+            display: flex;
+            margin: 20px;
+            justify-content: space-around;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        #details {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 3px solid #fbbc05;
+        }
+
+        th {
+            background-color: #1e75ab;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            background-color: #fff;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #ffe4e1;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+        }
+
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .header-container img {
+            height: 150px;
+            width: 150px;
+        }
+
+        h1 {
+            color: #ff69b4;
+            text-align: center;
+        }
+
+        marquee {
+            color: #ff4500;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="{% static 'logotran2.png' %}" alt="Logo">
+    </div>
+    <div class="icon-bar">
+        <a class="active" href="{% url 'home' %}"><i class="fa fa-home"></i> Home</a>
+        <a href="{% url 'childregisterpage' %}" style="color: black;"><i class="fa fa-user-plus"></i> Register</a>
+        <a href="{% url 'home' %}" style="color: black;"><i class="fa fa-sign-out"></i> Log Out</a>
+        <a href="#" style="color: black;"><i class="fa fa-info-circle"></i> About Us</a>
+        <a href="#" style="color: black;"><i class="fa fa-envelope"></i> Contact Us</a>
+    </div>
+    <div id="container">
+        <div id="details">
+            <h1>MYCHILD IN KINDERGARTEN</h1>
+            <p><strong>Note to all agents:</strong></p>
+            <marquee behavior="alternate" scrollamount="1">➡️ Student Record Update and click on the <strong>Completed</strong> button after your task is done ;)</marquee>
+            <marquee behavior="alternate" scrollamount="1">➡️ YOUR CHILD WILL SAFE WITH US THAT OUR PROMISE </marquee>
+            <hr>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>AGE</th>
+                    <th>Number MYkad</th>
+                    <th>IC Parent</th>
+                    <th colspan="3">Manage</th>
+                </tr>
+                {% for x in mychild %}
+                <tr>
+                    <td>{{ x.cname }}</td>
+                    <td>{{ x.age }}</td>
+                    <td>{{ x.mykadnum }}</td>
+                    <td>{{ x.ICNUM }}</td>
+                    <td><a href="pareupdatechild/{{ myparent.ICNUM }}/{{ x.mykadnum }}">UPDATE</a></td>
+                    <td><a href="childdetailpare/{{ myparent.ICNUM }}/{{ x.mykadnum }}">DETAIL</a></td>
+                    <td>
+                        <form method="post" action="{% url 'deletedatachild' x.mykadnum %}">
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</body>
+</html>

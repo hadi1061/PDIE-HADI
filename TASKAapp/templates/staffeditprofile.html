@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Staff Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+        }
+        h1 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .inputt {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .inputt:focus {
+            border-color: #000000;
+            outline: none;
+            box-shadow: 0 0 5px rgba(170, 186, 202, 0.5);
+        }
+        #bb {
+            
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #f8f8f8;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            border: solid #000000;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        #bb:hover {
+            background-color: #e6eff5;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Edit Profile</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="STICNUM">IC NUMBER:</label>
+            <input type="text" placeholder="{{mySTAFF.STICNUM}}" name="STICNUM" class="inputt" value="{{mySTAFF.STICNUM}}" disabled="False">
+            
+            <label for="NAME">Name 👤:</label>
+            <input type="text" placeholder="{{mySTAFF.NAME}}" name="NAME" class="inputt" id="bb">
+            
+            <label for="PASSWORD">Password 🔒:</label>
+            <input type="text" placeholder="{{mySTAFF.PASSWORD}}" name="PASSWORD" class="inputt" id="bb">
+            
+            <label for="EMAIL">Email 📧:</label>
+            <input type="email" placeholder="{{mySTAFF.EMAIL}}" name="EMAIL" class="inputt" id="bb">
+            
+            <label for="PHONENUMBER">Phone Number 📞:</label>
+            <input type="text" placeholder="{{mySTAFF.PHONENUMBER}}" name="PHONENUMBER" class="inputt" id="bb">
+            
+            <label for="ADDRESS">Address 🏡:</label>
+            <input type="text" placeholder="{{mySTAFF.ADDRESS}}" name="ADDRESS" class="inputt" id="bb">
+            
+            <label for="POSSITION">Position 📌:</label>
+            <input type="text" placeholder="{{mySTAFF.POSSITION}}" name="POSSITION" class="inputt" id="bb">
+            
+            <label for="EDUCATION">Education 🎓:</label>
+            <input type="text" placeholder="{{mySTAFF.EDUCATION}}" name="EDUCATION" class="inputt" id="bb">
+            
+            <input  type="submit" id="bb" value="✏️ Edit Profile">
+        </form>
+    </div>
+</body>
+</html>

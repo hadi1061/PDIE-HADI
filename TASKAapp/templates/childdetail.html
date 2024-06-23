@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #333;
+        }
+        .profile-container {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 600px;
+            height: 100%;
+            text-align: center;
+        }
+        h1 {
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .image-container img {
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #555;
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #0066cc;
+            border: 1px solid #0066cc;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        a:hover {
+            background-color: #0066cc;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Child Profile</h1>
+        <p><strong>Name:</strong> {{ myCHILD.cname }}</p>
+        <p><strong>ICNUM Parent:</strong> {{ myCHILD.ICNUM }}</p>
+        <p><strong>Age:</strong> {{ myCHILD.age }}</p>
+        <div class="image-container">
+            <p class="section-title">Salinan My Kid</p>
+            <img src="{{ myCHILD.salinanmykid.url }}" alt="Salinan My Kid">
+            <p class="section-title">Salinan IC Parents</p>
+            <img src="{{ myCHILD.salinanICparent.url }}" alt="Salinan IC Parents">
+            <p class="section-title">Salinan Surat Beranak</p>
+            <img src="{{ myCHILD.salinansuratberanak.url }}" alt="Salinan Surat Beranak">
+            <p class="section-title">Salinan Imunisasi Anak</p>
+            <img src="{{ myCHILD.salinanimunisasianak.url }}" alt="Salinan Imunisasi Anak">
+            <p class="section-title">Salinan Interface Buku Kesihatan Anak</p>
+            <img src="{{ myCHILD.interfacebukukesihatan.url }}" alt="Salinan Interface Buku Kesihatan Anak">
+        </div>
+        <a href="{% url 'staffhome' mySTAFF.STICNUM %}">Back</a>
+    </div>
+</body>
+</html>

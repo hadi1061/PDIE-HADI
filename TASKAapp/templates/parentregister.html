@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    {%load static%}
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    background-color: #e0e0e0;
+    margin: 0;
+    padding: 0;
+    background-image: url("{% static 'backregister.jpg' %}");
+    background-repeat: no-repeat;
+    background-size: cover; /* Cover the full size of the body */
+    background-position: center; /* Center the background image */
+}
+
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #ffffff9f;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            appearance: none;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        a{
+            background-color: #4caf50;
+            color: white;
+            padding: 15px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold; 
+            text-align: center;
+        }
+        a:hover{
+            background-color: #45a049;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        h2{
+            text-align: center;
+            font-size: 50px;
+        }
+    </style>
+    <h2>TASKA CERIA </h2>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>PARENT REGISTER</h1>
+        <form action="{% url 'funcparentregister' %}" method="post">
+
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="IC">IC:</label>
+                <input type="text" name="ICNUM" placeholder="Kad Pengenalan">
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="NAME" placeholder="Name">
+            </div>
+
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="USERNAME" placeholder="Username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="PASSWORD" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <label for="EMAIL">EMAIL:</label>
+                <input type="email" name="EMAIL" placeholder="EMAIL">
+            </div>
+
+            <div class="form-group">
+                <label for="ADDRESS">ADDRESS</label>
+                <input type="text" name="ADDRESS" placeholder="ADDRESS">
+            </div>
+            <div class="form-group">
+                <label for="NOMPHONE">NOMPHONE</label>
+                <input type="text" name="NOMPHONE" placeholder="NOMPHONE">
+            </div>
+            <div class="form-group">
+                <label for="RELIGION">RELIGION</label>
+                <input type="text" name="RELIGION" placeholder="RELIGION">
+            </div>
+            <div class="form-group">
+                <label for="INCOME">INCOME</label>
+                <input type="number" name="INCOME" placeholder="INCOME">
+            </div>
+
+              
+            <label for="relation">relation </label>
+            <div class="form-group">
+              <select name="RELATIONSHIP" id="type">
+                    <option value="GURDIAN">GURDIAN</option>
+                    <option value="PARENT">Parent</option>
+                    <option value="SIBLING">Sibling</option>
+                </select>
+            </div>
+
+        
+           
+
+            <input type="submit" value="SUBMIT">
+            <br>
+            <a  href="{% url 'parentlogin' %}">LOGIN</a>
+            <br>
+            <a href="{% url 'home' %}">HOME</a>
+        </form>
+    </div>
+</body>
+</html>

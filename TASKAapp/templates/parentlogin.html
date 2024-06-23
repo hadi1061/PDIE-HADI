@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    {% load static %}
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            background-image: url("{% static 'loginwall.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        
+
+        h1 {
+            text-align: center;
+            color: #fff; /* Change the text color */
+        }
+
+        .error {
+            color: #ff0000; /* Change the error message color */
+        }
+
+        form {
+            max-width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-right: 3%;
+            background: #1bd9ff4c; /* Change the form background color */
+            border: 1px solid #020202;
+            box-shadow: 0 0 10px #000000;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            background-color: #3498db; /* Change the button background color */
+            color: #fff; /* Change the button text color */
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Change the button color on hover */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            text-decoration: none;
+            color: rgb(0, 0, 0); /* Change the link color */
+            text-shadow: #000000;
+            font-size: 30px;
+            max-width: 225px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            padding-right: 1%;
+            padding-left: 1%;
+            background: #1bd9ff7a; /* Change the form background color */
+            border-radius: 50px solid #020202;
+            box-shadow: 0 0 10px #000000;
+        }
+        a:hover{
+            color: #ff0000;
+        }
+        p{
+            text-align: center;
+            color: #000000; /* Change the text color */
+        }
+        #back-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        #clock{
+            padding: 20px 40px;
+            border-radius: 50px;
+            border: 2px solid darkgray;
+            width: 190px;
+            margin: auto;
+            font-size: 30px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <center><h1>PARENT LOGIN</h1></center>
+    <div id="clock"></div>
+    <br>
+    <br>
+    <br>
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    {% endif %}
+
+    <form action="#" method="post">
+        {% csrf_token %}
+        
+        <input type="text" id="ICNUM" name="ICNUM" placeholder="IC NUMBER" required><br>
+        <br>
+        <input type="password" id="PASSWORD" name="PASSWORD" placeholder="Password" required><br>
+        <br>
+        <center><button type="submit">Login</button></center>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <script>
+        setInterval(waktu, 1000);
+        function waktu() {
+            const clock = document.getElementById("clock");
+            let time = new Date();
+            let h = time.getHours().toString().padStart(2, "0");
+            let m = time.getMinutes().toString().padStart(2, "0");
+            let s = time.getSeconds().toString().padStart(2, "0");
+            clock.innerText = `${h} : ${m} : ${s}`;
+        }
+    </script>
+   
+</body>
+</html>

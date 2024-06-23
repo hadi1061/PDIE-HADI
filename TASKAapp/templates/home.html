@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{%load static%}
+<style>
+head {margin:0;}
+
+.icon-bar {
+  width: 100%;
+  background-image: url("{% static 'headerhome.jpg' %}");
+  overflow: auto;
+ 
+}
+
+.icon-bar a {
+  float: left;
+  width: 20%;
+  text-align: center;
+  
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #04AA6D;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+h2{
+    text-align: center;
+}
+
+.active1, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: rgba(24, 229, 24, 0.503);
+  overflow: hidden;
+  box-shadow: #000;
+}
+.pane2 {
+  padding: 0 18px;
+  display: none;
+  background-color: rgba(112, 127, 255, 0.503);
+  overflow: hidden;
+}
+
+/* The about link: 20px from the top with a green background */
+#about {
+  top: 20px;
+  background-color: #04AA6D;
+}
+.container {
+  display: flex; /* Use flexbox */
+  align-items: center; /* Vertically align items */
+}
+
+.inline-img {
+  margin-right: 10px; /* Add some margin for spacing */
+}
+body{
+  background-color: #ffffff;
+}
+#img1{
+  width: 50%;
+  height: 25%;
+  float: left;
+  border-radius: 15px;
+}
+
+#p1{
+  font-size: 35px;
+  font-weight: 100;
+  font-style: normal;
+}
+
+#comment{
+  margin-left: 10%;
+  margin-right: 3%;
+}
+#comment2{
+  border: #000;
+  border-style: solid 3px;
+}
+#div1{
+  float: inline-start;
+  width: 200px;
+  height: 350px;
+  background-color: #fbbc05;
+  margin-left: 15%;
+  border: #000000 solid;
+  border-radius : 15%;
+}
+#div3{
+  float: inline-end;
+  width:  200px;
+  height: 350px;
+  background-color: #fbbc05;
+  margin-right: 15%;
+  border: #000 solid 3px;
+  border-radius: 15%;
+}
+#div2{
+  float: inline-start;
+  width:  200px;
+  height: 350px;
+  background-color: #fbbc05;
+  margin-left: 15%;
+  margin-right: 14%;
+  border: #000 solid 3px;
+  border-radius: 15%;
+}
+#p2{
+  margin-left: 10px;
+  font-weight: bold;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+  margin-top: 7px;
+  text-align: center;
+  width: 100%;
+  height: 40px;
+}
+#STAFF{
+  font-size: 35px;
+  font-weight: 100;
+  font-style: normal;
+  border:solid 3px #000000;
+  border-radius: 100%;
+  background-color: #fbbc05;
+  width: 20%;
+}
+#LOCATION{
+  font-size: 35px;
+  font-weight: 100;
+  font-style: normal;
+  border:solid 3px #000000;
+  border-radius: 100%;
+  background-color: #39e5ff;
+  width: 20%;
+}
+#location1{
+  float: right;
+  height: 25%;
+  width: 50%;
+}
+.container1{
+  display:flow-root;
+  justify-content: space-between;
+}
+#locationtext{
+  text-align: center;
+  text-shadow: #000;
+  background-color: rgb(255, 255, 255);
+  width: 50%;
+  margin-top: 25px;
+}
+#franchise{
+  font-weight: bold;
+  font-size: 30px;
+}
+
+
+
+
+</style>
+<head>
+    <center>
+    <div class="icon-bar">
+        <div style="position: relative; display: inline-block;">
+            <p style="position: absolute; top: 0; left: 9px; margin: 0; color: white; background-color: rgba(0, 0, 0, 0.5); padding: 6px;"></p>
+            <img src="{% static 'logotran2.png' %}" alt="" height="150px" width="150px">
+          </div>
+     </center>    
+    </div>
+    <div class="icon-bar">
+        <a class="active" href="#"><i class="fa fa-home"></i></a> 
+        <a style="color: black;" href="{% url 'parentregister' %}"><i>REGISTER</i></a> 
+        <a style="color: black;" href="{% url 'selectlogin' %}"><i>LOGIN</i></a> 
+        <a style="color: black;" href="#"><i>ABOUT US</i></a>
+        <a style="color: black;" href="#"><i>CONTACT US</i></a> 
+        
+      </div>
+</head>
+<body>
+  <center>
+  <p id="p1">WELCOME TO TASKA CERIA</p>
+</center>
+
+<img src="{% static 'healtyfood.jpg' %}" alt="" id="img1">
+<center><p>COMMENT</p></center>
+<div id="comment2">
+  <div>
+  <img src="{% static 'pfpp.jpg' %}" alt="" width="80px" height="80px" style="float: left; border-radius: 100%; border: #fbbc05 solid 3px; margin-left: 18%;">
+  <span style="margin-left: 3%;">⭐⭐⭐⭐⭐</span> <br><br> <span style="margin-left: 4%;">LAYANAN TIPTOP !!</span><br><br>
+  </div>
+  <br>
+  <br>
+  <div>
+  <img src="{% static 'pfpp.jpg' %}" alt="" width="80px" height="80px" style="float: left; border-radius: 100%; border: #fbbc05 solid 3px; margin-left: 18%;">
+  <span style="margin-left: 3%;">⭐⭐⭐⭐⭐</span> <br><br> <span style="margin-left: 4%;">MAKANG SEDAK DAN SIHAT!!!</span><br><br>
+ </div>
+ <br>
+ <br>
+  <div>
+  <img src="{% static 'pfpp.jpg' %}" alt="" width="80px" height="80px" style="float: left; border-radius: 100%; border: #fbbc05 solid 3px; margin-left: 18%;">
+  <span style="margin-left: 3%;">⭐⭐⭐⭐⭐</span> <br><br> <span style="margin-left: 4%;">ANOK SUKE DOOH !!!</span><br><br>
+  </div>
+  <br>
+  <br>
+  <div>
+    <img src="{% static 'pfpp.jpg' %}" alt="" width="80px" height="80px" style="float: left; border-radius: 100%; border: #fbbc05 solid 3px; margin-left: 18%;">
+    <span style="margin-left: 3%;">⭐⭐⭐⭐⭐</span> <br><br> <span style="margin-left: 4%;">IN SYA ALLAH SELAMAT </span><br><br>
+    </div>
+</div>
+  <br>
+  <br>
+  <br>
+  <center><p id="STAFF">STAFF</p></center>
+<div class="container">
+
+  <div id="div1">
+    <img src="{% static 'person1.jpg' %}" height="160px" width="160px" style="border: solid #000000; border-radius: 100%; margin-right: auto; margin-left: 16px; margin-top: 5%;"  >
+    <p id="p2">NAME : KHATINA</p>
+    <p id="p2">AGE: 23</p>
+    <p id="p2">EDUCATION: DIPLOMA</p>
+    <p id="p2">ROLE: TEACHER</p>
+  </div>
+  <div id="div2">
+    <img src="{% static 'hadi1.jpg' %}" height="160px" width="160px" style="border: solid #000000; border-radius: 100%; margin-right: auto; margin-left: 16px; margin-top: 5%;"  >
+    <p id="p2">NAME : HADI</p>
+    <p id="p2">AGE: 26</p>
+    <p id="p2">EDUCATION: DEGREE</p>
+    <p id="p2">ROLE: OWNER</p>
+  </div>
+  <div id="div3">
+    <img src="{% static 'ersha3.jpg' %}" height="160px" width="160px" style="border: solid #000000; border-radius: 100%; margin-right: auto; margin-left: 16px; margin-top: 5%;"  >
+    <p id="p2">NAME : AMINAH</p>
+    <p id="p2">AGE: 23</p>
+    <p id="p2">EDUCATION: SPM</p>
+    <p id="p2">ROLE: TEACHER</p>
+  </div>
+
+
+</div>
+<center><p id="LOCATION">LOCATION</p></center>
+<div class="container1">
+  <div>
+    <img src="{%static 'taska.jpg'%}" id="location1">
+    <center><p id="franchise">FRANCHISE</p></center>
+    <br>
+    <br>
+    <p id="locationtext">LOCATION : KAMPUNG LOSONG ,20050,KUALA TERENGGANU , TERENGGANU</p>
+    <br><br><br><p id="locationtext">LOCATION : KAMPUNG  TOK MEI ,KUALA NERUS , TERENGGANU</p>
+    <br><br><br><p id="locationtext">LOCATION : KAMPUNG AYER HITAM ,KEMAMAN , TERENGGANU</p>
+  </div>
+  
+</div>
+<br>
+<br>
+<footer>
+  <div style="background-color: #fbbc05; margin-top: 3%;margin-bottom: 3px;" >
+    <br>
+    <span>TASKA CERIA.SDN.BHD , BY LUTFIL HADI BIN MUSTAFF </span><br>
+    <span>FOR QUESTION CONTACT ⭐ 60-172341061</span>
+    <br>
+  </div>
+</footer>  
+</body>
+</html> 
